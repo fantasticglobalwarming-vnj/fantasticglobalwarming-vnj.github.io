@@ -3,12 +3,20 @@
    padding: 0;
 }
 
+body{
+   background-color:#393E46;
+}
+
 .main-content {
    display:flex;
    justify-content:center;
    align-items:center;
    flex-direction: column;
    margin:5%;
+   transition: all 2s ease-in-out;
+   margin-top:200vh;
+   transform:translate(0px, -175vh);
+   color:white;
 }
 /*
    NAVBAR NAVBAR NAVBAR NAVBAR NAVBAR NAVBAR NAVBAR NAVBAR NAVBAR NAVBAR
@@ -27,10 +35,9 @@
    padding: 20% 0 100% 0; /* top, left, bottom, right */
    transition: all 0.4s ease-in-out;
    z-index: 5;
-   background-color: black;
    color:white;
    left: -4;
-   width:20%;
+   width:25%;
 }
 .navbar:hover {
    transform:translate(60%, 0);
@@ -38,6 +45,8 @@
 .navbut {
    padding: 14px 80px;
    color:white;
+   position:relative;
+   padding-right:40vw;
 }
 .navbut a{
    text-decoration: none;
@@ -52,6 +61,15 @@
 .navbar-title{
    display:flex;
    flex-direction:column;
+   overflow:hidden;
+   text-decoration:none;
+   float:right;
+   overflow-wrap:hidden;
+   position:absolute;
+   right:1vw;
+   gap:50px;
+   font-size:45px;
+   z-index:2;
 }
 
 .first-course, .second-course{
