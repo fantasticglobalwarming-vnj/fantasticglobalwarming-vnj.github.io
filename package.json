@@ -1,0 +1,16 @@
+{
+  "name": "fantasticglobalwarming-vnj.github.io",
+  "version": "1.0.0",
+  "description": "Global Warming is (not) Fantastic!",
+  "main": ".",
+  "repository": "https://github.com/fantasticglobalwarming-vnj/fantasticglobalwarming-vnj.github.io.git",
+  "author": "MXPSQL <73059135+MXP2095onetechguy@users.noreply.github.com>",
+  "scripts": {
+    "serve": "http-server www"
+  },
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "http-server": "^14.1.1"
+  }
+}
