@@ -17,6 +17,31 @@ body{
    margin-top:200vh;
    transform:translate(0px, -175vh);
    color:white;
+   margin-bottom:50vh;
+}
+
+.main-content .title{
+   display:flex;
+   font-size:8vw;
+   align-items:center;
+   justify-content:center;
+}
+
+.main-content .main-title{
+   height:100vh;
+   font-size:3vw;
+}
+
+.button-title{
+   border:2px solid white;
+   background-color:transparent;
+   color:white;
+   float:center;
+   display:flex;
+   justify-content:center;
+   align-items:center;
+   font-size:2vh;
+   padding: 2vh;
 }
 /*
    NAVBAR NAVBAR NAVBAR NAVBAR NAVBAR NAVBAR NAVBAR NAVBAR NAVBAR NAVBAR
@@ -28,16 +53,16 @@ body{
    flex-direction: column;
    text-align: right;
    justify-content:center;
-   left: -16%;
+   left: -20vw;
    position: fixed;
    overflow: hidden;
    text-decoration: none;
-   padding: 20% 0 100% 0; /* top, left, bottom, right */
+   padding: 37.5vh 0 100vw 0; /* top, left, bottom, right */
    transition: all 0.4s ease-in-out;
    z-index: 5;
    color:white;
-   left: -4;
    width:25%;
+   background-color:#33373c;
 }
 .navbar:hover {
    transform:translate(60%, 0);
