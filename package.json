@@ -1,13 +1,16 @@
 {
-  "name": "fgw-vited",
-  "private": true,
-  "version": "0.0.0",
-  "type": "module",
+  "name": "fantasticglobalwarming-vnj.github.io",
+  "version": "1.0.0",
+  "description": "Global Warming is (not) Fantastic!",
+  "repository": "https://github.com/fantasticglobalwarming-vnj/fantasticglobalwarming-vnj.github.io.git",
+  "author": "MXPSQL <73059135+MXP2095onetechguy@users.noreply.github.com>",
   "scripts": {
     "dev": "vite ./www --config config/vite.config.ts",
     "build": "tsc && vite build ./www --config config/vite.config.ts",
     "preview": "vite preview ./www --config config/vite.config.ts"
   },
+  "license": "MIT",
+  "private": true,
   "devDependencies": {
     "typescript": "~5.9.3",
     "vite": "npm:rolldown-vite@7.1.14"
