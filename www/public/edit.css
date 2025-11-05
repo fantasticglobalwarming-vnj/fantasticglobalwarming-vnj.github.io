@@ -1,0 +1,121 @@
+* {
+   margin: 0;
+   padding: 0;
+}
+
+body{
+   background-color:#393E46;
+}
+
+.main-content {
+   display:flex;
+   justify-content:center;
+   align-items:center;
+   flex-direction: column;
+   margin:5%;
+   transition: all 2s ease-in-out;
+   margin-top:200vh;
+   transform:translate(0px, -175vh);
+   color:white;
+   margin-bottom:50vh;
+}
+
+.main-content .title{
+   display:flex;
+   font-size:8vw;
+   align-items:center;
+   justify-content:center;
+}
+
+.main-content .main-title{
+   height:100vh;
+   font-size:3vw;
+}
+
+.button-title{
+   border:2px solid white;
+   background-color:transparent;
+   color:white;
+   float:center;
+   display:flex;
+   justify-content:center;
+   align-items:center;
+   font-size:2vh;
+   padding: 2vh;
+}
+/*
+   NAVBAR NAVBAR NAVBAR NAVBAR NAVBAR NAVBAR NAVBAR NAVBAR NAVBAR NAVBAR
+                                 |
+                                 v
+*/
+.navbar { /*NAVBAR NAVBAR NAVBAR NAVBAR NAVBAR NAVBAR NAVBAR NAVBAR NAVBAR NAVBAR*/
+   display: flex;
+   flex-direction: column;
+   text-align: right;
+   justify-content:center;
+   left: -20vw;
+   position: fixed;
+   overflow: hidden;
+   text-decoration: none;
+   padding: 37.5vh 0 100vw 0; /* top, left, bottom, right */
+   transition: all 0.4s ease-in-out;
+   z-index: 5;
+   color:white;
+   width:25%;
+   background-color:#33373c;
+}
+.navbar:hover {
+   transform:translate(60%, 0);
+}
+.navbut {
+   padding: 14px 80px;
+   color:white;
+   position:relative;
+   padding-right:40vw;
+}
+.navbut a{
+   text-decoration: none;
+   color: white;
+}
+
+.navbut:active{
+   color:white;
+   text-decoration:none;
+}
+
+.navbar-title{
+   display:flex;
+   flex-direction:column;
+   overflow:hidden;
+   text-decoration:none;
+   float:right;
+   overflow-wrap:hidden;
+   position:absolute;
+   right:1vw;
+   gap:50px;
+   font-size:45px;
+   z-index:2;
+}
+
+.first-course, .second-course{
+   position: relative;
+}
+
+.course-image{
+   height:200%;
+   width:100%;
+   object-fit:cover;
+}
+
+.course-title {
+   position:absolute;
+   padding: 10px;
+   bottom: 0;
+   left: 0;
+   box-sizing: border-box;
+   color: #fff;
+   margin: 0;
+   width:100%;
+   text-shadow: 2px 2px 4px #333;
+   z-index:1;
+}

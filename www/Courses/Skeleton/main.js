@@ -1,0 +1,1 @@
+self.quizer = new MQEngine.QuizEngine();
