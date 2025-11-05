@@ -417,6 +417,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"fantasticglobalwarming-vnj.github.io@workspace:.":
+  version: 0.0.0-use.local
+  resolution: "fantasticglobalwarming-vnj.github.io@workspace:."
+  dependencies:
+    typescript: "npm:~5.9.3"
+    vite: "npm:rolldown-vite@7.1.14"
+  languageName: unknown
+  linkType: soft
+
 "fdir@npm:^6.5.0":
   version: 6.5.0
   resolution: "fdir@npm:6.5.0"
@@ -428,15 +437,6 @@ __metadata:
   checksum: 10c0/e345083c4306b3aed6cb8ec551e26c36bab5c511e99ea4576a16750ddc8d3240e63826cc624f5ae17ad4dc82e68a253213b60d556c11bfad064b7607847ed07f
   languageName: node
   linkType: hard
-
-"fgw-vited@workspace:.":
-  version: 0.0.0-use.local
-  resolution: "fgw-vited@workspace:."
-  dependencies:
-    typescript: "npm:~5.9.3"
-    vite: "npm:rolldown-vite@7.1.14"
-  languageName: unknown
-  linkType: soft
 
 "foreground-child@npm:^3.1.0":
   version: 3.3.1
