@@ -4,10 +4,36 @@
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title>Document</title>
+   <link rel="stylesheet" href="GreenHouseGas.css">
 
    <script type="module" src="/src/mqengine.ts"></script>
 </head>
 <body>
-   
+   <h1>Level 1 - The Beginning</h1>
+   <p>Learn what greenhouse gases are and why they matter</p>
+
+   <section id="module1">
+      <h2>Module 1 - What Are Greenhouse Gases?</h2>
+      <p>Imagine Earth wearing a thin blanket. That blanket is our atmosphere, and some gases in it are called greenhouse gases; they trap heat from the Sun so the planet stays warm enough for life. Without them, Earth would freeze. But when we add too many, the blanket gets thicker, trapping extra heat. That's global warming.</p>
+      <ul>
+         <li>CO₂ : from burning fuels, deforestation</li>
+         <li>CH₄ : from cows, landfills</li>
+         <li>N₂O : from fertilizers</li>
+         <li>F-gases : from refrigerants</li>
+      </ul>
+
+      <div class="quiz">
+         <p><strong>Quiz:</strong></p>
+         <p>1. Which of these is not a greenhouse gas?</p>
+         <button onclick="checkAnswer(this, 'c', 'module1')">a) CO₂</button>
+         <button onclick="checkAnswer(this, 'c', 'module1')">b) CH₄</button>
+         <button onclick="checkAnswer(this, 'c', 'module1')">c) O₂</button>
+         <button onclick="checkAnswer(this, 'c', 'module1')">d) N₂O</button>
+         <p class="result hidden"></p>
+      </div>
+  <button class="next" onclick="nextModule('module1','module2')">Next →</button>
+   </section>
+
+
 </body>
 </html>
