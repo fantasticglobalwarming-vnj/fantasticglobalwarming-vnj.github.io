@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <mqengine>
+
+    <prompt title="What's E?">
+        E is E.
+    </prompt>
+
     <question question="What's E?">
         <answer>K</answer>
         <answer>E</answer>
@@ -7,6 +12,10 @@
 
         <correct-answer>E</correct-answer>
     </question>
+
+    <prompt title="King who?">
+        King Kong or Cock? One is real and one is a meme.
+    </prompt>
 
     <question question="King?">
         <answer>Kong</answer>
