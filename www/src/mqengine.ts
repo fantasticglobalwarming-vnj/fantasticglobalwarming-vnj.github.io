@@ -64,7 +64,10 @@ export class MQEngine {
 
         // Check for correct answers that aren't an option
         {
-            
+            const uAnswers = Answers.filter(item => !cAnswers.includes(item));
+            const uCAnswers = cAnswers.filter(item => !Answers.includes(item));
+            let v = [...uAnswers, ...uCAnswers];
+            console.log(v);
         }
 
         let qpair : QPairs = {
