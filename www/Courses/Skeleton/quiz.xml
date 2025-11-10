@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mqengine>
+    <question question="What's E?">
+        <answer>K</answer>
+        <answer>E</answer>
+        <answer>X</answer>
+
+        <correct-answer>E</correct-answer>
+    </question>
+
+    <question question="King?">
+        <answer>Kong</answer>
+        <answer>Dong</answer>
+        <answer>Cock</answer>
+
+        <correct-answer>Kong</correct-answer>
+        <correct-answer>Cock</correct-answer>
+    </question>
+</mqengine>
