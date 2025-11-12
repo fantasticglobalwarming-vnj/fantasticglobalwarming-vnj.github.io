@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mqengine>
+
+    <prompt title="What's E?">
+        E is E.
+    </prompt>
+
+    <question question="1. Which of these is not a greenhouse gas?">
+        <answer>a) CO₂</answer>
+        <answer>b) CH₄</answer>
+        <answer>c) O₂</answer>
+        <answer>d) N₂O</answer>
+
+        <correct-answer>c) O₂</correct-answer>
+    </question>
+
+    <prompt title="King who?">
+        King Kong or Cock? One is real and one is a meme.
+    </prompt>
+
+    <question question="King?">
+        <answer>Kong</answer>
+        <answer>Dong</answer>
+        <answer>Cock</answer>
+
+        <correct-answer>Kong</correct-answer>
+        <correct-answer>Cock</correct-answer>
+    </question>
+</mqengine>
