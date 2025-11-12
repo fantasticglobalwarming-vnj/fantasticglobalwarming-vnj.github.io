@@ -22,7 +22,7 @@ body{
 
 .main-content .title{
    display:flex;
-   font-size:8vw;
+   font-size:10vw;
    align-items:center;
    justify-content:center;
 }
@@ -57,21 +57,24 @@ body{
    position: fixed;
    overflow: hidden;
    text-decoration: none;
-   padding: 37.5vh 0 100vw 0; /* top, left, bottom, right */
+   padding: 30vh 0 100vw 0; /* top, left, bottom, right */
    transition: all 0.4s ease-in-out;
    z-index: 5;
    color:white;
    width:25%;
-   background-color:#33373c;
+   background-color:rgba(255,0,255, 0.5);
+   backdrop-filter:blur(5px);
 }
 .navbar:hover {
-   transform:translate(60%, 0);
+   transform:translate(40%, 0);
 }
 .navbut {
-   padding: 14px 80px;
    color:white;
    position:relative;
-   padding-right:40vw;
+   padding-right:5vw;
+   text-decoration:none;
+   font-size:1.2vw;
+   padding-top:10vh;
 }
 .navbut a{
    text-decoration: none;
@@ -93,7 +96,7 @@ body{
    position:absolute;
    right:1vw;
    gap:50px;
-   font-size:45px;
+   font-size:4vw;
    z-index:2;
 }
 
