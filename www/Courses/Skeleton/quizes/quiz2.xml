@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mqengine title="Racist Sample Quiz">
+    <description>Well, its a quiz. This is a sample quiz, and the topic is quite racist.</description>
+
+    <question question="Ching">
+        <answer>Chang</answer>
+        <answer>Chong</answer>
+        <answer>Chang Chong</answer>
+
+        <correct-answer>Chong</correct-answer>
+        <correct-answer>Chang Chong</correct-answer>
+    </question>
+</mqengine>

@@ -1,0 +1,65 @@
+/* Modify and tailor this! */
+/* Just modify the attributes and properties, not the names! */
+
+body {
+   margin:0;
+   background-color:#393E46;
+   color:#333;
+}
+
+header {
+   background:#58b47b; 
+   color:white; 
+   text-align:center; 
+   padding:1em 0;
+}
+
+section {
+   max-width:700px; 
+   margin:30px auto; 
+   background:white; 
+   padding:20px; 
+   border-radius:12px; 
+   box-shadow:0 2px 8px rgba(0,0,0,0.1);
+   text-align:justify;
+   font-family:'Comic Sans MS';
+}
+
+h2 {
+   color:#37925a;
+}
+button {
+   background:#58b47b; 
+   color:white; 
+   border:none; 
+   padding:10px 20px; 
+   border-radius:8px; 
+   cursor:pointer;
+}
+
+button:hover {
+   background:#4aa06d;
+}
+
+.quiz button {
+   margin-top:10px;
+}
+.result {
+   margin-top:10px; 
+   font-weight:bold;
+}
+.hidden {
+   display:none;
+}
+.next {
+   margin-top:20px;
+}
+
+.top{
+   display:flex;
+   justify-content:center;
+   align-items:center;
+   flex-direction:column;
+   font-family:"Comic Sans MS";
+   color:white;
+}

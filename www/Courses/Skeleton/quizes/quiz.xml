@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<mqengine>
+<mqengine title="Meme Sample Quiz">
+    <description>Well, its a quiz. This is a sample quiz, and the topic is memes.</description>
 
     <prompt title="What's E?">
         E is E.

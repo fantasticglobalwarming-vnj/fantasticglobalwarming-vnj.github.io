@@ -3,10 +3,13 @@ class QPairs {
     answers : string[];
     correctAnswers : string[];
 
-    constructor({question = "", answers = [""], correctAnswers = [""]}) {
+    answerMap : Record<string, boolean>;
+
+    constructor({question = "", answers = [""], correctAnswers = [""], answerMap = {}} : QPairs) {
         this.question = question;
         this.answers = answers;
         this.correctAnswers = correctAnswers;
+        this.answerMap = answerMap;
     }
 };
 
@@ -14,7 +17,7 @@ class Messages {
     title : string;
     message : string;
 
-    constructor({title = "", message = ""}) {
+    constructor({title = "", message = ""} : Messages) {
         this.title = title;
         this.message = message;
     }
@@ -33,10 +36,16 @@ class MQEngine {
     #configDOM : Document | undefined;
     #questionaires : Prompts[];
 
+    #modtitle : String | null;
+    #moddesc : String | null;
+
     constructor() {
         this.#parser = new DOMParser();
         this.#configDOM = undefined;
         this.#questionaires = [];
+
+        this.#modtitle = null;
+        this.#moddesc = null;
     }
 
     load(source : string) {
@@ -79,10 +88,19 @@ class MQEngine {
             if(uCAnswers.length > 0) throw new MQEngineError(`Found unlisted correct answers: ${uCAnswers}`);
         }
 
+        let AnswerMap : Record<string, boolean> = {};
+        { // Construct a mapping
+            for(const answer of Answers) {
+                AnswerMap[answer] = cAnswers.includes(answer);
+            }
+        }
+
         let qpair : QPairs = new QPairs({
             question: qprompt,
             answers: Answers,
-            correctAnswers: cAnswers
+            correctAnswers: cAnswers,
+            answerMap: AnswerMap
+
         });
         this.#questionaires.push(qpair);
     }
@@ -102,7 +120,10 @@ class MQEngine {
 
     parse() {
         let root : HTMLCollectionOf<Element> | undefined = this.#configDOM?.children;
-        let components : HTMLCollectionOf<Element> | undefined = root?.[0].children || document.createElement('div').children;
+        let rootNode : ParentNode = root?.[0] || document.createElement("div");
+        let components : HTMLCollectionOf<Element> | undefined = rootNode.children;
+
+        this.#modtitle = (rootNode as Element).getAttribute("title")
 
         for(const comp of (components || [])) {
             if(comp.tagName == "question") {
@@ -111,15 +132,25 @@ class MQEngine {
             else if(comp.tagName == "prompt") {
                 this.#parseMessages(comp);
             }
+            else if(comp.tagName == "description") {
+                if(this.#moddesc) throw new MQEngineError("Duplicate Descriptions!");
+
+                this.#moddesc = comp.textContent;
+            }
             else {
                 throw new MQEngineError(`Unknown quiz slide: ${comp.tagName}`);
             }
         }
     }
 
-    [Symbol.iterator]() : Iterable<Prompts> | null {
+
+    getInfo() : [String | null, String | null] {
+        return [this.#modtitle, this.#moddesc];
+    }
+
+    [Symbol.iterator]() : Iterable<[number, Prompts]> | null {
         // TODO: Implmenet the iterable protocol
-        return this.#questionaires[Symbol.iterator]();
+        return this.#questionaires.entries();
     }
 };
 
