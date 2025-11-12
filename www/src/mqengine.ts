@@ -1,22 +1,33 @@
-export interface QPairs {
+class QPairs {
     question : string;
     answers : string[];
     correctAnswers : string[];
+
+    constructor({question = "", answers = [""], correctAnswers = [""]}) {
+        this.question = question;
+        this.answers = answers;
+        this.correctAnswers = correctAnswers;
+    }
 };
 
-export interface Messages {
+class Messages {
     title : string;
     message : string;
+
+    constructor({title = "", message = ""}) {
+        this.title = title;
+        this.message = message;
+    }
 }
 
-export type Prompts = QPairs | Messages;
+type Prompts = QPairs | Messages;
 
 
 
-export class MQEngineError extends TypeError {};
+class MQEngineError extends TypeError {};
 
 
-export class MQEngine {
+class MQEngine {
     #parser : DOMParser;
     
     #configDOM : Document | undefined;
@@ -64,17 +75,15 @@ export class MQEngine {
 
         // Check for correct answers that aren't an option
         {
-            const uAnswers = Answers.filter(item => !cAnswers.includes(item));
             const uCAnswers = cAnswers.filter(item => !Answers.includes(item));
-            let v = [...uAnswers, ...uCAnswers];
-            console.log(v);
+            if(uCAnswers.length > 0) throw new MQEngineError(`Found unlisted correct answers: ${uCAnswers}`);
         }
 
-        let qpair : QPairs = {
+        let qpair : QPairs = new QPairs({
             question: qprompt,
             answers: Answers,
             correctAnswers: cAnswers
-        };
+        });
         this.#questionaires.push(qpair);
     }
 
@@ -83,10 +92,10 @@ export class MQEngine {
 
         let message = msg.textContent;
 
-        let dmesg : Messages = {
+        let dmesg : Messages = new Messages({
             title: Title,
             message: message
-        };
+        });
 
         this.#questionaires.push(dmesg);
     }
@@ -113,3 +122,11 @@ export class MQEngine {
         return this.#questionaires[Symbol.iterator]();
     }
 };
+
+export {
+    QPairs,
+    Messages,
+    type Prompts,
+    MQEngineError,
+    MQEngine
+}
