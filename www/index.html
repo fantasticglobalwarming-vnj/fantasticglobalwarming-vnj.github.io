@@ -21,13 +21,24 @@
       <a class="navbut" href="/">C O N T A C T</a>
    </navbar>
    <br><br>
-
+   
    <div class="main-content">
-      <div class="main-title">
-         <p class="title-note">you can hover the navbar!</p>
-         <h1 class="title">T H E C O U R S E</h1>
-         <button class="button-title">Start</button>
+      <div class="main-top">
+         <div class="main-frame">
+            <div class="corner top-l"></div>
+            <div class="corner top-r"></div>
+            <div class="corner bot-l"></div>
+            <div class="corner bot-r"></div>
+
+            <div class="main-title">
+               <p class="title-note">you can hover the navbar!</p>
+               <h1 class="title">T H E C O U R S E</h1>
+               <button class="button-title">Start</button>
+            </div>
+         </div>
       </div>
+
+
       <br><br>
       <div class="first-course">
          <br>
@@ -41,5 +52,35 @@
       </div>
    </div>
    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+
+   <script>
+   window.addEventListener('scroll', () => {
+      if (window.scrollY > 250) {
+         document.body.classList.add('scrolled');
+      } 
+      else {
+         document.body.classList.remove('scrolled');
+      }
+   });
+   let scrollTarget = 0;
+   let currentScroll = 0;
+   let ease =0.01; // lower = heavier, higher = lighter
+
+   window.addEventListener("wheel", (e) => {
+      e.preventDefault();
+      scrollTarget += e.deltaY;
+   }, {passive:false});
+
+   function smoothScroll() {
+      currentScroll += (scrollTarget - currentScroll) * ease;
+      window.scrollTo(0, currentScroll);
+      requestAnimationFrame(smoothScroll);
+   }
+   smoothScroll();
+
+
+   </script>
+
 </body>
 </html>

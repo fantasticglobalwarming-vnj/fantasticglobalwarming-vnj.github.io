@@ -5,6 +5,12 @@
 
 body{
    background-color:#393E46;
+   transition: background 0.4s ease;
+   overflow-x:hidden;
+}
+
+body.scrolled {
+   background-color: #4f6655;
 }
 
 .main-content {
@@ -12,25 +18,84 @@ body{
    justify-content:center;
    align-items:center;
    flex-direction: column;
-   margin:5%;
    transition: all 2s ease-in-out;
-   margin-top:200vh;
+   margin-top:170vh;
+   width:100vw;
    transform:translate(0px, -175vh);
    color:white;
    margin-bottom:50vh;
 }
 
+
+.main-content .main-frame{
+   position:relative;
+}
+
+.corner{
+   position: absolute;
+   width: 40px;
+   height: 40px;
+   border: 2px solid #b43a3a;
+   margin: -50px -15px -50px -15px;
+}
+
+.top-l{
+   top: 0;
+   left: 0;
+   border-right: none;
+   border-bottom: none;
+}
+
+.top-r{
+   top: 0;
+   right: 0;
+   border-left: none;
+   border-bottom: none;
+}
+
+.bot-l{
+   bottom: 0;
+   left: 0;
+   border-right: none;
+   border-top: none;
+}
+
+.bot-r{
+   bottom: 0;
+   right: 0;
+   border-left: none;
+   border-top: none;
+}
+
+
 .main-content .title{
    display:flex;
    font-size:10vw;
-   align-items:center;
-   justify-content:center;
 }
 
 .main-content .main-title{
-   height:100vh;
    font-size:3vw;
+   text-align:center;
+   display:flex;
+   flex-direction:column;
+   align-items:center;
+   justify-content:center;
+   gap:1rem;
 }
+.main-top{
+   background-image:url("https://images.unsplash.com/photo-1697261599586-d44243b3225e?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+   background-size: cover;
+   background-position: center;
+   background-repeat: no-repeat;
+   background-attachment: fixed; 
+   height: 100vh; 
+   width:100vw;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   flex-direction: column; 
+}
+
 
 .button-title{
    border:2px solid white;
@@ -127,4 +192,176 @@ body{
    width:100%;
    text-shadow: 2px 2px 4px #333;
    z-index:1;
+}
+
+
+body::-webkit-scrollbar {
+    width: 4px;
+}
+
+body::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+body::-webkit-scrollbar-thumb {
+    background: rgba(176, 38, 176, 0.35); /* soft purple tint */
+    border-radius: 2vw;
+}
+
+body::-webkit-scrollbar-thumb:hover {
+    background: rgba(176, 38, 176, 0.55);
+}
+
+
+/* responsive stuff */
+
+
+/* ---------------------------------------------------
+   RESPONSIVE 1200px (large laptops)
+--------------------------------------------------- */
+@media (max-width: 1200px) {
+   .main-content .title {
+      font-size: 12vw;
+   }
+   .main-content .main-title {
+      font-size: 4vw;
+   }
+   .navbar {
+      left: -30vw;
+      width: 30%;
+   }
+   .navbut {
+      font-size: 1.5vw;
+   }
+}
+
+/* ---------------------------------------------------
+   RESPONSIVE 900px (tablets)
+--------------------------------------------------- */
+@media (max-width: 900px) {
+
+   .main-content .title {
+      font-size: 14vw;
+   }
+
+   .main-content .main-title {
+      font-size: 5vw;
+      gap: 0.7rem;
+   }
+
+   .button-title {
+      font-size: 2.2vh;
+      padding: 2vh 3vh;
+   }
+
+   .navbar {
+      width: 45%;
+      left: -45vw;
+      padding: 30vh 0 100vh 0;
+   }
+
+   .navbut {
+      font-size: 2.5vw;
+      padding-top: 2vh;
+      padding-bottom: 2vh;
+   }
+
+   .navbar-title {
+      font-size: 6vw;
+   }
+
+   .corner {
+      width: 28px;
+      height: 28px;
+      margin: -35px -10px -35px -10px;
+   }
+}
+
+
+/* ---------------------------------------------------
+   RESPONSIVE 600px (phones)
+--------------------------------------------------- */
+@media (max-width: 600px) {
+
+   /* Main heading */
+   .main-content .title {
+      font-size: 16vw;
+   }
+
+   .main-content .main-title {
+      font-size: 7vw;
+      gap: 0.5rem;
+   }
+
+   .button-title {
+      font-size: 2.5vh;
+      padding: 2vh 3vh;
+   }
+
+   /* Navbar becomes a slide-in drawer */
+   .navbar {
+      width: 70%;
+      left: -70vw;
+      padding: 25vh 0 100vh 0;
+      backdrop-filter: blur(4px);
+   }
+
+   .navbar:hover {
+      transform: translate(80%, 0);
+   }
+
+   .navbut {
+      font-size: 4vw;
+   }
+
+   .navbar-title {
+      font-size: 8vw;
+      right: 3vw;
+   }
+
+   /* Corners smaller */
+   .corner {
+      width: 22px;
+      height: 22px;
+      margin: -28px -8px -28px -8px;
+   }
+
+   /* Buttons easier to click */
+   .navbut, .button-title {
+      padding: 2.5vh;
+   }
+}
+
+
+
+/* ---------------------------------------------------
+   RESPONSIVE 420px (small phones)
+--------------------------------------------------- */
+@media (max-width: 420px) {
+
+   .main-content .title {
+      font-size: 18vw;
+   }
+
+   .main-content .main-title {
+      font-size: 8vw;
+   }
+
+   .navbar {
+      width: 80%;
+      left: -80vw;
+   }
+
+   .navbut {
+      font-size: 5vw;
+   }
+
+   .navbar-title {
+      font-size: 10vw;
+   }
+
+   .corner {
+      width: 20px;
+      height: 20px;
+   }
 }
