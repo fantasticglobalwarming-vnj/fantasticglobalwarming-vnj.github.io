@@ -5,129 +5,90 @@ const wany = (window as any);
 const quizBox = wany.quizBox = document.getElementById("QuizBox");
 
 let mqengine = wany.mqengine = new MQEngine();
-let slides : DocumentFragment[] = wany.slides = [];
-let currentSlide : number = 0;
+let qaMap = wany.qaMap = new Map<Number, boolean>();
+let qaCounter : Number = 0;
 
-const SLPOS_ATTR = "slide-pos";
+const qaMapIndexAttr = "qamap-index";
+const qaSelAnswIndex = "qa-answindex";
+
+function createQuestion(qpair : QPairs) : HTMLDivElement {
+    const d = document.createElement("div");
+
+    d.setAttribute(qaMapIndexAttr, `${qaCounter}`);
+
+    let question = document.createElement("h2");
+    question.innerHTML = qpair.question;
 
 
-function createQuestion(nBox : HTMLDivElement, i : QPairs, nextBtn : HTMLButtonElement) {
-    nBox.classList.add("quiz"); // Make it a quiz
 
-    // Make the question
-    let question = document.createElement("p");
-    question.innerHTML = i.question; // Rich text
-    nBox.appendChild(question);
+    let choices : HTMLButtonElement[] = [];
+    for(const choice of qpair.answers) {
+        const btn = document.createElement("button");
+        btn.textContent = choice;
 
-    // Make the answers
-    for(const choices of i.answers) {
-        // Create the choice
-        let btn = document.createElement("button");
-        btn.textContent = choices;
+        { // Install click handler
+            btn.onclick = function() {
+                const div = d;
+                const index = Number.parseInt(d.getAttribute(qaMapIndexAttr) ?? "0");
 
-        // Now to do the onclick
-        {
-            function Yipee() {
-                nBox.appendChild(nextBtn);
+                const status = qpair.answerMap[choice];
+
+                qaMap.set(index, status);
             }
-
-            function Boo() {
-                window.alert("loser");
-            }
-
-            if(i.answerMap[choices]) { btn.onclick = Yipee; }
-            else { btn.onclick = Boo; }
         }
 
-
-        // Append the choice
-        nBox.appendChild(btn);
+        choices.push(btn as HTMLButtonElement);
     }
+
+
+    d.appendChild(question);
+    for(const choice of choices) {
+        d.appendChild(choice);
+    }
+
+    return d;
+}
+
+function createMessage(msg : Messages) : HTMLDivElement {
+    const d = document.createElement("div");
+
+    const title = document.createElement("h2");
+    const msgp = document.createElement("p");
+
+    title.textContent = msg.title;
+    msgp.innerHTML = msg.message;
+
+    d.appendChild(title);
+    d.appendChild(msgp);
+
+    return d;
 }
 
 function createQuiz(mqe : MQEngine) {
-    for(const [index, i] of mqe) {
-        const nBoxFrag = new DocumentFragment();
-        const nBox = document.createElement("div");
+    for(const [_i, p] of mqe) {
+        let child;
 
-        nBox.setAttribute(SLPOS_ATTR, index);
-
-        const nextBtn = document.createElement("button");
-        { // Do the next button
-            nextBtn.onclick = () => {
-                currentSlide += 1;
-                changeSlide(slides, currentSlide);
-            }
-            nextBtn.textContent = "Next →";
+        if(p instanceof Messages) {
+            child = createMessage(p);
+        }
+        else if(p instanceof QPairs) {
+            child = createQuestion(p);
+            qaMap.set(qaCounter, false);
+            qaCounter += (1 as Number);
         }
 
-        if(i instanceof Messages) { // Is Message?
-            // Create the needed elements
-            let title = document.createElement("h2");
-            let message = document.createElement("p");
-
-            // Style
-            { /* None */ }
-
-            // Put the required content
-            title.textContent = i.title;
-            message.innerHTML = i.message; // Rich text
-
-            // Append it
-            nBox.appendChild(title);
-            nBox.appendChild(message);
-            nBox.appendChild(nextBtn);
-        }
-        else if(i instanceof QPairs) {
-            createQuestion(nBox, i, nextBtn);
-        }
-
-        // Put it all together
-        nBoxFrag.appendChild(nBox);
-        slides.push(nBoxFrag);
+        quizBox?.appendChild(child as Node);
     }
 }
-
-
-function changeSlide(slds : DocumentFragment[], cslds : number) {
-    if((quizBox?.innerHTML?.length ?? 0) > 0) { // Append it back!
-        const e = quizBox?.querySelector("div");
-        let pos : number = Number(e?.getAttribute(SLPOS_ATTR));
-        slides[pos].appendChild(e as Node);
-    }
-
-    let frags : DocumentFragment = new DocumentFragment();
-    {
-        if(cslds >= slides.length) { // Error message
-            const frag = new DocumentFragment();
-
-            const p = document.createElement("p");
-            p.textContent = "Too far! (Internal Error)";
-            frag.appendChild(p);
-            
-            frags = frag;
-        }
-        else { // Normal!
-            frags = slds[cslds];
-        }
-    }
-
-    quizBox?.appendChild(frags);
-}
-wany.chSlide = changeSlide;
 
 function loadQuiz(quizxml : string) {
     fetch(quizxml).then(async (response) => {
-        slides.splice(0, slides.length);
-
         let r = await response.text();
         mqengine.load(r);
         mqengine.parse();
 
         createQuiz(mqengine);
-
-        changeSlide(slides, currentSlide);
     });
 }
 
-loadQuiz("./quizes/quiz2.xml");
+loadQuiz("./quizes/quiz.xml");

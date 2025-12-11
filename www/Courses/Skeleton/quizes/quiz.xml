@@ -26,4 +26,13 @@
         <correct-answer>Kong</correct-answer>
         <correct-answer>Cock</correct-answer>
     </question>
+
+    <question question="cyka blyat?">
+        <answer>Cyka</answer>
+        <answer>Blyat</answer>
+        <answer>Cyka Blyat</answer>
+        <answer>Suka Blee-yat</answer>
+
+        <correct-answer>Cyka Blyat</correct-answer>
+    </question>
 </mqengine>
