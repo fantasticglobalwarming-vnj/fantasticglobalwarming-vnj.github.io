@@ -89,7 +89,7 @@ body.scrolled {
    background-repeat: no-repeat;
    background-attachment: fixed; 
    height: 100vh; 
-   width:100vw;
+   width:100%;
    display: flex;
    align-items: center;
    justify-content: center;
@@ -113,6 +113,7 @@ body.scrolled {
                                  |
                                  v
 */
+/*pallete: */
 .navbar { /*NAVBAR NAVBAR NAVBAR NAVBAR NAVBAR NAVBAR NAVBAR NAVBAR NAVBAR NAVBAR*/
    display: flex;
    flex-direction: column;
@@ -127,11 +128,13 @@ body.scrolled {
    z-index: 5;
    color:white;
    width:25%;
-   background-color:rgba(255,0,255, 0.5);
    backdrop-filter:blur(5px);
+   background-image: linear-gradient(to right, #31694e, #00000000);
 }
 .navbar:hover {
-   transform:translate(50%, 0);
+   transform:translate(20%, 0);
+   padding-right: 40%;
+   -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
 }
 .navbut {
    display:flex;
@@ -144,7 +147,7 @@ body.scrolled {
    align-items:center;
    padding-top:3vh;
    padding-bottom:3vh;
-   
+   transition: ease-in-out 0.25s;
 }
 
 .navbut:active{
@@ -169,8 +172,8 @@ body.scrolled {
    gap:50px;
    font-size:4vw;
    z-index:2;
+   transition: ease-in-out 0.25s;
 }
-
 .first-course, .second-course{
    position: relative;
 }

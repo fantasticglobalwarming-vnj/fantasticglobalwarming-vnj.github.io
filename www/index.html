@@ -55,30 +55,58 @@
 
 
    <script>
-   window.addEventListener('scroll', () => {
-      if (window.scrollY > 250) {
-         document.body.classList.add('scrolled');
-      } 
-      else {
-         document.body.classList.remove('scrolled');
-      }
-   });
-   let scrollTarget = 0;
-   let currentScroll = 0;
-   let ease =0.01; // lower = heavier, higher = lighter
+/*scroll shenanigans2*/
+let isScrolling = false;
+let targetScroll = 0;
 
-   window.addEventListener("wheel", (e) => {
-      e.preventDefault();
-      scrollTarget += e.deltaY;
-   }, {passive:false});
+window.addEventListener('wheel', e => {
+    e.preventDefault();
 
-   function smoothScroll() {
-      currentScroll += (scrollTarget - currentScroll) * ease;
-      window.scrollTo(0, currentScroll);
-      requestAnimationFrame(smoothScroll);
-   }
-   smoothScroll();
+    const scrollAmount = e.deltaY;
+    const current = window.scrollY;
 
+    if (!isScrolling) {
+        targetScroll = current + scrollAmount;
+        smoothScroll();
+    } else {
+        targetScroll += scrollAmount;
+    }
+}, { passive: false });
+
+function smoothScroll() {
+    isScrolling = true;
+
+    const current = window.scrollY;
+    const distance = targetScroll - current;
+
+    if (Math.abs(distance) < 1) {
+        window.scrollTo(0, targetScroll);
+        isScrolling = false;
+        return;
+    }
+
+    const step = distance * 0.15;
+    window.scrollBy(0, step);
+
+    requestAnimationFrame(smoothScroll);
+}
+window.addEventListener('scroll', () => {
+    const targets = [
+        { element: document.getElementById('head'), class: 'seehead' },
+        { element: document.getElementById('yapaa'), class: 'seeyap' }
+    ];
+
+    targets.forEach(t => {
+        const pos = t.element.getBoundingClientRect().top;
+        const screenHeight = window.innerHeight;
+
+        if (pos < screenHeight * 0.75) {
+            t.element.classList.add(t.class);
+        } else {
+            t.element.classList.remove(t.class);
+        }
+    });
+});
 
    </script>
 
