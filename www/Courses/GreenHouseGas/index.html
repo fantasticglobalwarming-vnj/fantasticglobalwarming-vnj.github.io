@@ -1,64 +1,725 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-   <meta charset="UTF-8">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>Document</title>
-   <link rel="stylesheet" href="GreenHouseGas.css">
-
-   <script type="module" src="/src/mqengine.ts"></script>
+  <meta charset="UTF-8">
+  <title>GHG Modules</title>
+  <link rel="stylesheet" href="GreenHouseGas.css">
 </head>
 <body>
-   <div class="left">
-      <br><br><br><br>
-      <a class="back" href="index.html">< Back</a>
-      <h1 class="left-title">Modules</h1>
-      <ol class="left-list">
-         <li class="GG-L1">What Are The Greenhouse Gases (GHGs) - L1</li>
-         <li class="GG-L1">Why They Matter - L1</li>
-         <li class="GG-L1">Major Contributors - L1</li>
-         <li class="GG-L2">How We Measure GHGs - L2</li>
-         <li class="GG-L2">Where Emissions Come From - L2</li>
-         <li class="GG-L2">How Powerful Are These Gases - L2</li>
-         <li class="GG-L3">Feedback loops & Tipping points - L3</li>
-         <li class="GG-L3">Carbon budgets & Pathways - L3</li>
-         <li class="GG-L3">Policy & Economics - L3</li>
-         <li class="GG-L3">Tech: Carbon Removal & Mitigation - L3</li>
-         <li class="GG-L4">Residual & Negative Emissions - L4</li>
-         <li class="GG-L4">Climate Justice & Governance - L4</li>
-         <li class="GG-L4">Uncertainties & Frontiers - L4</li>
-         <li class="GG-L5">FINAL - L5</li>
-      </ol>
-      <br><br><br><br><br>
-   </div>
 
-   <div class="top">
-      <h1 class="title title1">Level 1 ⋅ The Beginning</h1>
-      <p class="title-note title-note1">What greenhouse gases are ⋅ Why they matter</p>
-   </div>
+<div class="left">
+  <a class="back" href="/www/index.html">< Back</a>
+  <h1 class="left-title">Modules</h1>
+  <ol class="left-list">
+    <li class="GG-L1" data-target="module1">What Are The Greenhouse Gases - L1</li>
+    <li class="GG-L1" data-target="module2">Why They Matter - L1</li>
+    <li class="GG-L1" data-target="module3">Major Contributors - L1</li>
+    <li class="GG-L2" data-target="module4">How We Measure GHGs - L2</li>
+    <li class="GG-L2" data-target="module5">Where Emissions Come From - L2</li>
+    <li class="GG-L2" data-target="module6">How Powerful Are These Gases - L2</li>
+    <li class="GG-L3" data-target="module7">Feedback Loops & Tipping Points - L3</li>
+    <li class="GG-L3" data-target="module8">Carbon Budgets & Pathways - L3</li>
+    <li class="GG-L3" data-target="module9">Policy & Economics - L3</li>
+    <li class="GG-L3" data-target="module10">Tech: Removal & Mitigation - L3</li>
+    <li class="GG-L4" data-target="module11">Residual Emissions - L4</li>
+    <li class="GG-L4" data-target="module12">Climate Justice - L4</li>
+    <li class="GG-L4" data-target="module13">Uncertainties & Frontiers - L4</li>
+    <li class="GG-L5" data-target="module14">FINAL - L5</li>
+  </ol>
+</div>
 
-   <section id="module1">
-      <h2>Module 1 - What Are Greenhouse Gases?</h2>
-      <p>Imagine Earth wearing a thin blanket. That blanket is our atmosphere, and some gases in it are called greenhouse gases; they trap heat from the Sun so the planet stays warm enough for life. Without them, Earth would freeze. But when we add too many, the blanket gets thicker, trapping extra heat. That's global warming.</p>
-      <ul>
-         <li>CO₂ : from burning fuels, deforestation</li>
-         <li>CH₄ : from cows, landfills</li>
-         <li>N₂O : from fertilizers</li>
-         <li>F-gases : from refrigerants</li>
-      </ul>
+<section id="level1">
 
-      <div class="quiz">
-         <p><strong>Quiz:</strong></p>
-         <p>1. Which of these is not a greenhouse gas?</p>
-         <button onclick="checkAnswer(this, 'c', 'module1')">a) CO₂</button>
-         <button onclick="checkAnswer(this, 'c', 'module1')">b) CH₄</button>
-         <button onclick="checkAnswer(this, 'c', 'module1')">c) O₂</button>
-         <button onclick="checkAnswer(this, 'c', 'module1')">d) N₂O</button>
-         <p class="result hidden"></p>
-      </div>
-  <button class="next" onclick="nextModule('module1','module2')">Next →</button>
-   </section>
+<section id="level1">
+
+<section id="module1" class="module">
+  <h2>Module 1 – What Are Greenhouse Gases?</h2>
+  <p>
+   <strong>Greenhouse gases</strong> are gases present in Earth’s atmosphere
+   that have the ability to <strong>absorb and re-emit infrared radiation</strong>.
+   This process traps heat close to Earth’s surface and is known as the
+   <strong>greenhouse effect</strong>.
+
+   Naturally occurring greenhouse gases such as
+   <strong>water vapor, carbon dioxide (CO₂), methane (CH₄), and nitrous oxide (N₂O)</strong>
+   are essential for maintaining Earth’s average temperature.
+   Without them, the planet would be too cold to support most life.
+
+   However, human activities like <strong>burning fossil fuels</strong>,
+   <strong>deforestation</strong>, and <strong>industrial processes</strong>
+   have significantly increased greenhouse gas concentrations.
+   This enhanced greenhouse effect leads to <strong>global warming</strong>,
+   which drives climate change, sea level rise, and extreme weather events.
+  </p>
+
+  <div class="quiz" data-module="module1">
+    <p>Which is <strong>NOT</strong> a greenhouse gas?</p>
+    <button data-correct="false">CO₂</button>
+    <button data-correct="true">O₂</button>
+    <button data-correct="false">CH₄</button>
+    <p class="result"></p>
+  </div>
+
+  <div class="quiz" data-module="module1">
+    <p>Main function of greenhouse gases?</p>
+    <button data-correct="true">Trap heat in the atmosphere</button>
+    <button data-correct="false">Produce oxygen</button>
+    <button data-correct="false">Block all sunlight</button>
+    <p class="result"></p>
+  </div>
+
+  <div class="quiz" data-module="module1">
+    <p>Most abundant natural greenhouse gas?</p>
+    <button data-correct="true">Water vapor</button>
+    <button data-correct="false">Methane</button>
+    <button data-correct="false">CFCs</button>
+    <p class="result"></p>
+  </div>
+</section>
+
+<section id="module2" class="module">
+  <h2>Module 2 – Why They Matter</h2>
+  <p>
+   Greenhouse gases matter because they control how much <strong>heat stays on Earth</strong>.
+   When sunlight reaches the planet, some energy is reflected back into space, but
+   greenhouse gases <strong>absorb and trap part of this heat</strong>, keeping Earth warm
+   enough for life.
+
+   Human activities have increased greenhouse gas concentrations far beyond natural levels.
+   This causes the planet to <strong>warm faster than ecosystems can adapt</strong>.
+   The result includes <strong>melting glaciers</strong>, rising sea levels,
+   stronger storms, and more frequent heatwaves.
+
+   Understanding why greenhouse gases matter helps explain why reducing emissions
+   is essential to <strong>limit global warming</strong> and protect human societies.
+  </p>
+
+  <div class="quiz" data-module="module2">
+    <p>More greenhouse gases cause Earth to:</p>
+    <button data-correct="true">Warm up</button>
+    <button data-correct="false">Cool down</button>
+    <button data-correct="false">Stop rotating</button>
+    <p class="result"></p>
+  </div>
+
+  <div class="quiz" data-module="module2">
+    <p>Global warming mainly affects:</p>
+    <button data-correct="true">Climate patterns</button>
+    <button data-correct="false">Earth’s gravity</button>
+    <button data-correct="false">Moon phases</button>
+    <p class="result"></p>
+  </div>
+
+  <div class="quiz" data-module="module2">
+    <p>Excess warming can lead to:</p>
+    <button data-correct="true">Extreme weather</button>
+    <button data-correct="false">Stable seasons</button>
+    <button data-correct="false">Less evaporation</button>
+    <p class="result"></p>
+  </div>
+</section>
+
+<section id="module3" class="module">
+  <h2>Module 3 – Major Contributors</h2>
+  <p>
+   The largest contributors to greenhouse gas emissions come from
+   <strong>human economic activities</strong>.
+   The burning of <strong>coal, oil, and natural gas</strong> for electricity,
+   transportation, and industry is the biggest source of <strong>carbon dioxide (CO₂)</strong>.
+
+   <strong>Agriculture</strong> is another major contributor, especially through livestock,
+   which release <strong>methane (CH₄)</strong> during digestion.
+   The use of fertilizers produces <strong>nitrous oxide (N₂O)</strong>,
+   a gas with a very strong warming effect.
+
+   Waste management, deforestation, and industrial chemicals also add to emissions,
+   making climate change a problem driven mainly by <strong>human choices</strong>.
+  </p>
+
+  <div class="quiz" data-module="module3">
+    <p>Largest source of CO₂ emissions?</p>
+    <button data-correct="true">Burning fossil fuels</button>
+    <button data-correct="false">Photosynthesis</button>
+    <button data-correct="false">Ocean tides</button>
+    <p class="result"></p>
+  </div>
+
+  <div class="quiz" data-module="module3">
+    <p>Main source of methane emissions?</p>
+    <button data-correct="true">Livestock</button>
+    <button data-correct="false">Solar panels</button>
+    <button data-correct="false">Hydropower</button>
+    <p class="result"></p>
+  </div>
+
+  <div class="quiz" data-module="module3">
+    <p>Energy sector mainly emits:</p>
+    <button data-correct="true">CO₂</button>
+    <button data-correct="false">Oxygen</button>
+    <button data-correct="false">Nitrogen</button>
+    <p class="result"></p>
+  </div>
+</section>
+
+<section id="module4" class="module">
+  <h2>Module 4 – Measuring GHGs</h2>
+  <p>
+   Greenhouse gases are measured using scientific instruments on the ground,
+   in aircraft, and by <strong>satellites</strong>.
+   Concentrations of gases like CO₂ are commonly expressed in
+   <strong>parts per million (ppm)</strong>, which shows how many gas molecules exist
+   per million air molecules.
+
+   Long-term measurements allow scientists to track trends and identify
+   <strong>human influence on the atmosphere</strong>.
+   Ice cores, for example, provide records of greenhouse gas levels going back
+   hundreds of thousands of years.
+
+   Accurate measurement is critical for climate models, policies,
+   and international agreements aimed at <strong>reducing emissions</strong>.
+  </p>
+
+  <div class="quiz" data-module="module4">
+    <p>CO₂ concentration is measured in:</p>
+    <button data-correct="true">ppm</button>
+    <button data-correct="false">watts</button>
+    <button data-correct="false">joules</button>
+    <p class="result"></p>
+  </div>
+
+  <div class="quiz" data-module="module4">
+    <p>Higher ppm means:</p>
+    <button data-correct="true">More gas in atmosphere</button>
+    <button data-correct="false">Less warming</button>
+    <button data-correct="false">Lower pressure</button>
+    <p class="result"></p>
+  </div>
+
+  <div class="quiz" data-module="module4">
+    <p>Measurements help scientists:</p>
+    <button data-correct="true">Track climate trends</button>
+    <button data-correct="false">Control weather</button>
+    <button data-correct="false">Stop seasons</button>
+    <p class="result"></p>
+  </div>
+</section>
+
+<section id="module5" class="module">
+  <h2>Module 5 – Emission Sources</h2>
+  <p>
+   Emissions come from many everyday activities.
+   <strong>Transportation</strong> releases CO₂ through cars, planes, and ships
+   that burn fossil fuels.
+   <strong>Electricity production</strong> often relies on coal and natural gas,
+   making it one of the largest emission sources.
+
+   <strong>Food systems</strong> also play a role, including farming, processing,
+   packaging, and transportation.
+   Even household energy use contributes to emissions through heating,
+   cooling, and electricity consumption.
+
+   This shows that climate change is closely connected to
+   <strong>daily human behavior</strong>.
+  </p>
+
+  <div class="quiz" data-module="module5">
+    <p>Which produces CO₂?</p>
+    <button data-correct="true">Cars</button>
+    <button data-correct="false">Trees</button>
+    <button data-correct="false">Algae</button>
+    <p class="result"></p>
+  </div>
+
+  <div class="quiz" data-module="module5">
+    <p>Power plants mainly emit:</p>
+    <button data-correct="true">CO₂</button>
+    <button data-correct="false">O₂</button>
+    <button data-correct="false">Helium</button>
+    <p class="result"></p>
+  </div>
+
+  <div class="quiz" data-module="module5">
+    <p>Transport emissions come from:</p>
+    <button data-correct="true">Fuel combustion</button>
+    <button data-correct="false">Wind resistance</button>
+    <button data-correct="false">Gravity</button>
+    <p class="result"></p>
+  </div>
+</section>
+
+<section id="module6" class="module">
+  <h2>Module 6 – Gas Strength</h2>
+  <p>
+   Not all greenhouse gases warm the planet equally.
+   Scientists compare their strength using <strong>Global Warming Potential (GWP)</strong>,
+   which measures how much heat a gas traps over a certain time period
+   compared to carbon dioxide.
+
+   <strong>Methane (CH₄)</strong> is far more powerful than CO₂ in the short term,
+   even though it stays in the atmosphere for a shorter time.
+   <strong>Nitrous oxide (N₂O)</strong> is even stronger and lasts much longer.
+
+   Understanding gas strength helps prioritize which emissions
+   should be reduced first to <strong>slow warming effectively</strong>.
+  </p>
+
+  <div class="quiz" data-module="module6">
+    <p>Methane compared to CO₂ is:</p>
+    <button data-correct="true">More powerful</button>
+    <button data-correct="false">Weaker</button>
+    <button data-correct="false">Equal</button>
+    <p class="result"></p>
+  </div>
+
+  <div class="quiz" data-module="module6">
+    <p>GWP measures:</p>
+    <button data-correct="true">Warming impact</button>
+    <button data-correct="false">Gas density</button>
+    <button data-correct="false">Wind speed</button>
+    <p class="result"></p>
+  </div>
+
+  <div class="quiz" data-module="module6">
+    <p>CO₂ is used as:</p>
+    <button data-correct="true">Baseline reference</button>
+    <button data-correct="false">Strongest gas</button>
+    <button data-correct="false">Cooling gas</button>
+    <p class="result"></p>
+  </div>
+</section>
+
+<section id="module7" class="module">
+  <h2>Module 7 – Feedback Loops & Tipping Points</h2>
+  <p>
+   <strong>Feedback loops</strong> occur when climate changes trigger effects
+   that further increase warming.
+   For example, melting ice reduces Earth’s reflectivity,
+   causing more sunlight to be absorbed and leading to even more warming.
+
+   Some systems may reach <strong>tipping points</strong>,
+   where changes become irreversible.
+   Once crossed, returning to the original climate state becomes extremely difficult.
+
+   These processes make climate change <strong>faster and more dangerous</strong>
+   than simple warming alone.
+  </p>
+
+  <div class="quiz" data-module="module7">
+    <p>Melting ice causes:</p>
+    <button data-correct="true">More warming</button>
+    <button data-correct="false">Cooling</button>
+    <button data-correct="false">No effect</button>
+    <p class="result"></p>
+  </div>
+
+  <div class="quiz" data-module="module7">
+    <p>Ice melt reduces:</p>
+    <button data-correct="true">Albedo</button>
+    <button data-correct="false">Gravity</button>
+    <button data-correct="false">Pressure</button>
+    <p class="result"></p>
+  </div>
+
+  <div class="quiz" data-module="module7">
+    <p>Tipping points are:</p>
+    <button data-correct="true">Hard to reverse</button>
+    <button data-correct="false">Temporary</button>
+    <button data-correct="false">Harmless</button>
+    <p class="result"></p>
+  </div>
+</section>
+
+<section id="module8" class="module">
+  <h2>Module 8 – Carbon Budgets & Pathways</h2>
+  <p>
+   A <strong>carbon budget</strong> represents the maximum amount of CO₂
+   humanity can emit while still limiting global warming to a specific level,
+   such as 1.5°C or 2°C.
+
+   Scientists calculate these budgets based on climate models
+   and remaining atmospheric capacity.
+   Exceeding the budget increases the risk of severe climate impacts.
+
+   <strong>Emission pathways</strong> describe how quickly emissions must decline
+   to stay within these limits.
+  </p>
+
+  <div class="quiz" data-module="module8">
+    <p>Carbon budget means:</p>
+    <button data-correct="true">Limited emissions</button>
+    <button data-correct="false">Unlimited emissions</button>
+    <button data-correct="false">Natural balance only</button>
+    <p class="result"></p>
+  </div>
+
+  <div class="quiz" data-module="module8">
+    <p>Exceeding the budget leads to:</p>
+    <button data-correct="true">More warming</button>
+    <button data-correct="false">Cooling</button>
+    <button data-correct="false">Stability</button>
+    <p class="result"></p>
+  </div>
+
+  <div class="quiz" data-module="module8">
+    <p>Pathways describe:</p>
+    <button data-correct="true">Emission scenarios</button>
+    <button data-correct="false">Weather forecasts</button>
+    <button data-correct="false">Ocean currents</button>
+    <p class="result"></p>
+  </div>
+</section>
+
+<section id="module9" class="module">
+  <h2>Module 9 – Policy & Economics</h2>
+  <p>
+   Governments use policies to reduce greenhouse gas emissions.
+   Examples include <strong>carbon taxes</strong>, emission limits,
+   and incentives for renewable energy.
+
+   Economic tools encourage companies and individuals to
+   <strong>reduce pollution</strong> by making emissions more expensive.
+   International agreements also play a key role in coordinating global action.
+
+   Effective climate policy balances environmental protection
+   with economic stability and social fairness.
+  </p>
+
+  <div class="quiz" data-module="module9">
+    <p>Carbon tax does what?</p>
+    <button data-correct="true">Discourages emissions</button>
+    <button data-correct="false">Encourages pollution</button>
+    <button data-correct="false">Stops trade</button>
+    <p class="result"></p>
+  </div>
+
+  <div class="quiz" data-module="module9">
+    <p>Policies aim to:</p>
+    <button data-correct="true">Lower emissions</button>
+    <button data-correct="false">Increase warming</button>
+    <button data-correct="false">Remove seasons</button>
+    <p class="result"></p>
+  </div>
+
+  <div class="quiz" data-module="module9">
+    <p>Economic incentives encourage:</p>
+    <button data-correct="true">Cleaner energy</button>
+    <button data-correct="false">More coal</button>
+    <button data-correct="false">Deforestation</button>
+    <p class="result"></p>
+  </div>
+</section>
+
+<section id="module10" class="module">
+  <h2>Module 10 – Technology: Removal & Mitigation</h2>
+  <p>
+   Technology plays a major role in addressing climate change.
+   <strong>Renewable energy</strong> sources such as solar and wind
+   produce electricity without direct greenhouse gas emissions.
+
+   Other technologies focus on <strong>carbon capture and storage (CCS)</strong>,
+   which removes CO₂ from industrial processes or the atmosphere.
+   Energy efficiency also reduces emissions by using less energy overall.
+
+   Technological solutions are essential but must be combined
+   with behavioral and policy changes.
+  </p>
+
+  <div class="quiz" data-module="module10">
+    <p>Renewable energy example?</p>
+    <button data-correct="true">Solar</button>
+    <button data-correct="false">Coal</button>
+    <button data-correct="false">Oil</button>
+    <p class="result"></p>
+  </div>
+
+  <div class="quiz" data-module="module10">
+    <p>Carbon capture does what?</p>
+    <button data-correct="true">Removes CO₂</button>
+    <button data-correct="false">Adds CO₂</button>
+    <button data-correct="false">Stops wind</button>
+    <p class="result"></p>
+  </div>
+
+  <div class="quiz" data-module="module10">
+    <p>Mitigation means:</p>
+    <button data-correct="true">Reducing emissions</button>
+    <button data-correct="false">Ignoring climate</button>
+    <button data-correct="false">Adapting only</button>
+    <p class="result"></p>
+  </div>
+</section>
+
+<section id="module11" class="module">
+  <h2>Module 11 – Residual Emissions</h2>
+  <p>
+   Some emissions are extremely difficult to eliminate,
+   such as those from aviation or certain industrial processes.
+   These are known as <strong>residual emissions</strong>.
+
+   To balance them, societies may need <strong>negative emissions</strong>,
+   where more CO₂ is removed from the atmosphere than released.
+   Examples include reforestation and direct air capture.
+
+   Managing residual emissions is crucial for reaching
+   <strong>net-zero goals</strong>.
+  </p>
+
+  <div class="quiz" data-module="module11">
+    <p>Residual emissions are:</p>
+    <button data-correct="true">Hard to remove</button>
+    <button data-correct="false">Easy to remove</button>
+    <button data-correct="false">Natural only</button>
+    <p class="result"></p>
+  </div>
+
+  <div class="quiz" data-module="module11">
+    <p>They usually require:</p>
+    <button data-correct="true">Offsets</button>
+    <button data-correct="false">No action</button>
+    <button data-correct="false">Cooling</button>
+    <p class="result"></p>
+  </div>
+
+  <div class="quiz" data-module="module11">
+    <p>Common in sectors like:</p>
+    <button data-correct="true">Aviation</button>
+    <button data-correct="false">Photosynthesis</button>
+    <button data-correct="false">Rainfall</button>
+    <p class="result"></p>
+  </div>
+</section>
+
+<section id="module12" class="module">
+  <h2>Module 12 – Climate Justice</h2>
+  <p>
+   Climate change does not affect everyone equally.
+   <strong>Climate justice</strong> focuses on fairness,
+   recognizing that vulnerable communities often suffer the most
+   despite contributing the least to emissions.
+
+   Governance involves how decisions are made at local,
+   national, and global levels.
+   Strong institutions help ensure fair transitions to low-carbon societies.
+
+   Addressing climate change requires both
+   <strong>scientific solutions and ethical responsibility</strong>.
+  </p>
+
+  <div class="quiz" data-module="module12">
+    <p>Climate justice focuses on:</p>
+    <button data-correct="true">Fairness</button>
+    <button data-correct="false">Profit only</button>
+    <button data-correct="false">Technology only</button>
+    <p class="result"></p>
+  </div>
+
+  <div class="quiz" data-module="module12">
+    <p>Most affected groups often:</p>
+    <button data-correct="true">Contribute least</button>
+    <button data-correct="false">Emit most</button>
+    <button data-correct="false">Cause warming</button>
+    <p class="result"></p>
+  </div>
+
+  <div class="quiz" data-module="module12">
+    <p>Justice includes:</p>
+    <button data-correct="true">Shared responsibility</button>
+    <button data-correct="false">Ignoring inequality</button>
+    <button data-correct="false">Short-term gains</button>
+    <p class="result"></p>
+  </div>
+</section>
+
+<section id="module13" class="module">
+  <h2>Module 13 – Uncertainties & Frontiers</h2>
+  <p>
+   Climate science involves uncertainty because Earth systems
+   are complex and interconnected.
+   <strong>Climate models</strong> provide ranges of possible outcomes,
+   not exact predictions.
+
+   Ongoing research explores feedbacks, tipping points,
+   and future emission scenarios.
+   These frontiers improve our understanding over time.
+
+   Uncertainty does not mean ignorance,
+   but rather the need for <strong>precautionary action</strong>.
+  </p>
+
+  <div class="quiz" data-module="module13">
+    <p>Climate models are:</p>
+    <button data-correct="true">Estimates</button>
+    <button data-correct="false">Perfect predictions</button>
+    <button data-correct="false">Guesses only</button>
+    <p class="result"></p>
+  </div>
+
+  <div class="quiz" data-module="module13">
+    <p>Uncertainty means:</p>
+    <button data-correct="true">Range of outcomes</button>
+    <button data-correct="false">No knowledge</button>
+    <button data-correct="false">Wrong science</button>
+    <p class="result"></p>
+  </div>
+
+  <div class="quiz" data-module="module13">
+    <p>Models improve with:</p>
+    <button data-correct="true">More data</button>
+    <button data-correct="false">Less computing</button>
+    <button data-correct="false">Random guesses</button>
+    <p class="result"></p>
+  </div>
+</section>
+
+<section id="module14" class="module">
+  <h2>FINAL</h2>
+  <p>
+   This final module brings together all key ideas.
+   Greenhouse gases, human emissions, feedback loops,
+   and policy responses are deeply interconnected.
+
+   Solving climate change requires <strong>scientific understanding</strong>,
+   <strong>technological innovation</strong>,
+   and <strong>collective responsibility</strong>.
+
+   The choices made today will shape the climate,
+   ecosystems, and societies of the future.
+  </p>
+
+  <div class="quiz" data-module="module14">
+    <p>Main human greenhouse gas?</p>
+    <button data-correct="true">CO₂</button>
+    <button data-correct="false">O₂</button>
+    <button data-correct="false">Argon</button>
+    <p class="result"></p>
+  </div>
+
+  <div class="quiz" data-module="module14">
+    <p>Best way to limit warming?</p>
+    <button data-correct="true">Reduce emissions</button>
+    <button data-correct="false">Ignore science</button>
+    <button data-correct="false">Burn more coal</button>
+    <p class="result"></p>
+  </div>
+
+  <div class="quiz" data-module="module14">
+    <p>Carbon budget refers to:</p>
+    <button data-correct="true">Emission limits</button>
+    <button data-correct="false">Economic growth</button>
+    <button data-correct="false">Weather cycles</button>
+    <p class="result"></p>
+  </div>
+
+  <div class="quiz" data-module="module14">
+    <p>Climate justice emphasizes:</p>
+    <button data-correct="true">Equity</button>
+    <button data-correct="false">Profit</button>
+    <button data-correct="false">Speed only</button>
+    <p class="result"></p>
+  </div>
+</section>
+
+</section>
 
 
+   <script>
+const modules = document.querySelectorAll('.module');
+const menuItems = document.querySelectorAll('.left-list li');
+
+/* hide all modules */
+modules.forEach(m => m.style.display = 'none');
+
+/* restore progress */
+menuItems.forEach(li => {
+  const id = li.dataset.target;
+  if (localStorage.getItem(id) === 'done') {
+    li.classList.add('completed');
+  }
+});
+
+/* shuffle helper */
+function shuffle(el) {
+  const items = [...el.children];
+  items.sort(() => Math.random() - 0.5);
+  items.forEach(i => el.appendChild(i));
+}
+
+/* open module */
+document.querySelector('.left-list').onclick = e => {
+  const target = e.target.dataset.target;
+  if (!target) return;
+
+  modules.forEach(m => m.style.display = 'none');
+  const module = document.getElementById(target);
+  module.style.display = 'block';
+
+  module.querySelectorAll('.options').forEach(o => shuffle(o));
+};
+
+/* quiz logic */
+document.querySelectorAll('.quiz').forEach(q => {
+  q.onclick = e => {
+    if (e.target.tagName !== 'BUTTON') return;
+
+    const correct = e.target.dataset.correct === "true";
+    const result = q.querySelector('.result');
+    const moduleId = q.dataset.module;
+    const menuItem = document.querySelector(
+      `.left-list li[data-target="${moduleId}"]`
+    );
+
+    if (correct) {
+      result.textContent = "Correct";
+    } else {
+      result.textContent = "Wrong";
+    }
+
+    // re-check ALL quizzes in this module every click
+    const allCorrect = [...document.querySelectorAll(
+      `.quiz[data-module="${moduleId}"]`
+    )].every(quiz =>
+      quiz.querySelector('.result').textContent === "Correct"
+    );
+
+    if (allCorrect) {
+      localStorage.setItem(moduleId, 'done');
+      menuItem.classList.add('completed');
+    } else {
+      localStorage.removeItem(moduleId);
+      menuItem.classList.remove('completed');
+    }
+  };
+});
+
+/* open first module */
+document.getElementById('module1').style.display = 'block';
+document.querySelectorAll('#module1 .options').forEach(o => shuffle(o));
+</script>
 </body>
 </html>
+
+
+<!-- 
+REFERENCES:
+
+Intergovernmental Panel on Climate Change. (2023). Climate change 2023: Synthesis report. IPCC.
+
+Intergovernmental Panel on Climate Change. (2021). Climate change 2021: The physical science basis (Working Group I contribution to the Sixth Assessment Report). Cambridge University Press.
+
+International Energy Agency. (2023). Global energy review 2023. IEA.
+
+National Aeronautics and Space Administration. (n.d.). The greenhouse effect. NASA Earth Observatory.
+
+National Oceanic and Atmospheric Administration. (2024). Trends in atmospheric carbon dioxide. NOAA Global Monitoring Laboratory.
+
+Our World in Data. (n.d.). CO₂ and greenhouse gas emissions. University of Oxford.
+
+Stern, N. (2007). The economics of climate change: The Stern review. Cambridge University Press.
+
+United Nations Environment Programme. (2023). Emissions gap report 2023. UNEP.
+
+U.S. Environmental Protection Agency. (n.d.). Sources of greenhouse gas emissions. EPA.
+
+World Meteorological Organization. (2023). WMO greenhouse gas bulletin. WMO.
+
+-->
