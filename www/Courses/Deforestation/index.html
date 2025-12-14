@@ -554,15 +554,26 @@ for a healthy planet and future generations.
 
 </section>
 
+<section class="footerer">
+    <h1>VNJ</h1>
+    <h2>GreenHouse Gases</h2>
+    <div class="contacter">
+      <p>Contact Us</p>
+      <ul>
+          <li><a href="https://www.instagram.com/varensut?igsh=a2htMzNoM2FqbjFr" target="_blank">Varen</a></li>
+          <li><a href="https://www.instagram.com/mxpsql?igsh=MWJnM2lpb2RpanVwZQ==" target="_blank">Noah</a></li>
+          <li><a href="https://www.instagram.com/jag.pz?igsh=NXRvaTQ5YWw4bG93" target="_blank">Jamie</a></li>
+      </ul>
+    </div>
+</section>
+
 <script>
   const TOPIC = "deforestation"; // change per topic
   const modules = document.querySelectorAll('.module');
   const menuItems = document.querySelectorAll('.left-list li');
 
-  /* hide all modules */
   modules.forEach(m => m.style.display = 'none');
 
-  /* restore progress */
   menuItems.forEach(li => {
     const id = li.dataset.target;
     if (localStorage.getItem(`${TOPIC}_${id}`) === 'done') {
@@ -570,14 +581,12 @@ for a healthy planet and future generations.
     }
   });
 
-  /* shuffle helper */
   function shuffle(el) {
     const items = [...el.children];
     items.sort(() => Math.random() - 0.5);
     items.forEach(i => el.appendChild(i));
   }
 
-  /* open module */
   document.querySelector('.left-list').onclick = e => {
     const target = e.target.dataset.target;
     if (!target) return;
@@ -589,7 +598,6 @@ for a healthy planet and future generations.
     module.querySelectorAll('.options').forEach(o => shuffle(o));
   };
 
-  /* quiz logic */
   document.querySelectorAll('.quiz').forEach(q => {
     q.onclick = e => {
       if (e.target.tagName !== 'BUTTON') return;
@@ -619,7 +627,6 @@ for a healthy planet and future generations.
     };
   });
 
-  /* open first module */
   document.getElementById('module1').style.display = 'block';
   document.querySelectorAll('#module1 .options').forEach(o => shuffle(o));
 </script>

@@ -2,17 +2,18 @@
   box-sizing: border-box;
 }
 
-/* DESKTOP FIRST */
 html, body {
   height: 100%;
   margin: 0;
-  overflow: hidden; /* no global scroll */
+  overflow: hidden; 
   font-family: "Inter", "Segoe UI", Arial, sans-serif;
 }
 
 body {
   display: flex;
   background-image:url("https://images.unsplash.com/photo-1697261599586-d44243b3225e?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+  background-size: cover;
+  background-position: center;
 }
 
 .left {
@@ -39,14 +40,13 @@ body {
   padding-left: 1em;
 }
 
-/* RAINBOW LEVEL COLORS */
+
 .GG-L1 { color: lightgreen; padding-top: 1.2vh; cursor: pointer; }
 .GG-L2 { color: lightyellow; padding-top: 1.2vh; cursor: pointer; }
 .GG-L3 { color: lightcoral; padding-top: 1.2vh; cursor: pointer; }
 .GG-L4 { color: red; padding-top: 1.2vh; cursor: pointer; }
 .GG-L5 { color: white; padding-top: 1.2vh; cursor: pointer; }
 
-/* BACK BUTTON */
 .back {
   color: white;
   text-decoration: none;
@@ -67,33 +67,29 @@ body {
   justify-content: center;
   align-items: center;
   padding: 3vh 3vw;
-  overflow: hidden; /* keep page locked */
+  overflow: hidden; 
 }
 
 
-/* MODULE CARD */
 .module {
   width: 100%;
   max-width: 900px;
-  height: 88vh;              /* fixed visible area */
+  height: 88vh;              
   background: white;
   padding: 2rem;
   border-radius: 14px;
   box-shadow: 0 6px 18px rgba(0,0,0,0.12);
   font-size: clamp(14px, 1vw, 16px);
   line-height: 1.65;
-
-  overflow-y: auto;          /* 👈 THIS is the key */
+  overflow-y: auto;          
 }
 
-/* HEADINGS */
 h2 {
   color: #37925a;
   font-size: clamp(18px, 2vw, 22px);
   margin-bottom: 0.6em;
 }
 
-/* BUTTONS */
 button {
   background: #58b47b;
   color: white;
@@ -117,7 +113,6 @@ button:hover {
   font-weight: 600;
 }
 
-/* COMPLETED */
 .completed {
   text-decoration: line-through;
   opacity: 0.6;
@@ -127,11 +122,19 @@ button:hover {
   content: " ✓";
 }
 
-/* ========================= */
-/* TABLET & MOBILE BEHAVIOR */
-/* ========================= */
+.footerer {
+  margin-top: 2rem;
+  padding: 1rem;
+  background-color: #eee;
+  border-radius: 10px;
+  font-size: clamp(12px, 0.9vw, 14px);
+  text-align: center;
+  text-decoration:none;
+}
 
-@media (max-width: 1024px) {
+
+
+@media (max-width: 1024px) and (min-width: 769px) {
   #level1 {
     align-items: flex-start;
     overflow-y: auto;
@@ -141,19 +144,61 @@ button:hover {
     height: auto;
     overflow-y: visible;
   }
+  
+  .footerer{
+    margin-top:auto;
+  }
 }
 
 @media (max-width: 768px) {
+
   body {
     flex-direction: column;
+    overflow: hidden;
   }
 
   .left {
     width: 100%;
     height: auto;
+    min-width: unset;
+    padding: 1.2rem 1rem;
+    justify-content: flex-start;
+  }
+
+  .left-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 6px 14px;
+    padding-left: 0;
+    margin-top: 0.8rem;
+  }
+
+  .left-list li {
+    padding-top: 0.6rem;
+    font-size: 13px;
+  }
+
+  .back {
+    font-size: 22px;
+    margin-bottom: 0.6rem;
   }
 
   #level1 {
-    height: calc(100vh - 220px);
+    flex: 1;
+    height: calc(100vh - 260px);
+    padding: 1rem;
+    overflow: hidden;
+  }
+
+  .module {
+    height: 100%;
+    max-width: 100%;
+    padding: 1.2rem;
+    border-radius: 12px;
+    overflow-y: auto;
+  }
+  .footerer{
+    margin-top:auto;
   }
 }
+
