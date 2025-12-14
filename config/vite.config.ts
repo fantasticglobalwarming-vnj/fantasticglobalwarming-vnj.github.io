@@ -5,6 +5,7 @@ import { resolve } from "node:path";
 
 export default defineConfig({
     base: "./",
+    publicDir: "public",
     build: {
         rolldownOptions: {
             input: Object.fromEntries(
