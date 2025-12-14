@@ -11,7 +11,11 @@ export default defineConfig({
                 globSync('www/**/*.{html,htm,css,js}').map(file => [
                   // The name of the entry point (e.g., 'main', 'utils/helper')
                   // This removes the 'src/' part of the path and the file extension
-                  file.slice(4, file.length - 3),
+                  (() => {
+                    let slk = file.slice(4, file.length);
+                    console.log(slk);
+                    return slk;
+                  })(),
                   // The absolute path to the file
                   resolve(process.cwd(), file)
                 ])
