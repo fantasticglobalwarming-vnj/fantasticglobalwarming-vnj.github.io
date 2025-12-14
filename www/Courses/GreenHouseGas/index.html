@@ -622,79 +622,76 @@
 </section>
 
 
-   <script>
-const modules = document.querySelectorAll('.module');
-const menuItems = document.querySelectorAll('.left-list li');
+<script>
+  const TOPIC = "ghg"; // change per topic
+  const modules = document.querySelectorAll('.module');
+  const menuItems = document.querySelectorAll('.left-list li');
 
-/* hide all modules */
-modules.forEach(m => m.style.display = 'none');
-
-/* restore progress */
-menuItems.forEach(li => {
-  const id = li.dataset.target;
-  if (localStorage.getItem(id) === 'done') {
-    li.classList.add('completed');
-  }
-});
-
-/* shuffle helper */
-function shuffle(el) {
-  const items = [...el.children];
-  items.sort(() => Math.random() - 0.5);
-  items.forEach(i => el.appendChild(i));
-}
-
-/* open module */
-document.querySelector('.left-list').onclick = e => {
-  const target = e.target.dataset.target;
-  if (!target) return;
-
+  /* hide all modules */
   modules.forEach(m => m.style.display = 'none');
-  const module = document.getElementById(target);
-  module.style.display = 'block';
 
-  module.querySelectorAll('.options').forEach(o => shuffle(o));
-};
-
-/* quiz logic */
-document.querySelectorAll('.quiz').forEach(q => {
-  q.onclick = e => {
-    if (e.target.tagName !== 'BUTTON') return;
-
-    const correct = e.target.dataset.correct === "true";
-    const result = q.querySelector('.result');
-    const moduleId = q.dataset.module;
-    const menuItem = document.querySelector(
-      `.left-list li[data-target="${moduleId}"]`
-    );
-
-    if (correct) {
-      result.textContent = "Correct";
-    } else {
-      result.textContent = "Wrong";
+  /* restore progress */
+  menuItems.forEach(li => {
+    const id = li.dataset.target;
+    if (localStorage.getItem(`${TOPIC}_${id}`) === 'done') {
+      li.classList.add('completed');
     }
+  });
 
-    // re-check ALL quizzes in this module every click
-    const allCorrect = [...document.querySelectorAll(
-      `.quiz[data-module="${moduleId}"]`
-    )].every(quiz =>
-      quiz.querySelector('.result').textContent === "Correct"
-    );
+  /* shuffle helper */
+  function shuffle(el) {
+    const items = [...el.children];
+    items.sort(() => Math.random() - 0.5);
+    items.forEach(i => el.appendChild(i));
+  }
 
-    if (allCorrect) {
-      localStorage.setItem(moduleId, 'done');
-      menuItem.classList.add('completed');
-    } else {
-      localStorage.removeItem(moduleId);
-      menuItem.classList.remove('completed');
-    }
+  /* open module */
+  document.querySelector('.left-list').onclick = e => {
+    const target = e.target.dataset.target;
+    if (!target) return;
+
+    modules.forEach(m => m.style.display = 'none');
+    const module = document.getElementById(target);
+    module.style.display = 'block';
+
+    module.querySelectorAll('.options').forEach(o => shuffle(o));
   };
-});
 
-/* open first module */
-document.getElementById('module1').style.display = 'block';
-document.querySelectorAll('#module1 .options').forEach(o => shuffle(o));
+  /* quiz logic */
+  document.querySelectorAll('.quiz').forEach(q => {
+    q.onclick = e => {
+      if (e.target.tagName !== 'BUTTON') return;
+
+      const correct = e.target.dataset.correct === "true";
+      const result = q.querySelector('.result');
+      const moduleId = q.dataset.module;
+      const menuItem = document.querySelector(
+        `.left-list li[data-target="${moduleId}"]`
+      );
+
+      result.textContent = correct ? "Correct" : "Wrong";
+
+      const allCorrect = [...document.querySelectorAll(
+        `.quiz[data-module="${moduleId}"]`
+      )].every(quiz =>
+        quiz.querySelector('.result').textContent === "Correct"
+      );
+
+      if (allCorrect) {
+        localStorage.setItem(`${TOPIC}_${moduleId}`, 'done');
+        menuItem.classList.add('completed');
+      } else {
+        localStorage.removeItem(`${TOPIC}_${moduleId}`);
+        menuItem.classList.remove('completed');
+      }
+    };
+  });
+
+  /* open first module */
+  document.getElementById('module1').style.display = 'block';
+  document.querySelectorAll('#module1 .options').forEach(o => shuffle(o));
 </script>
+
 </body>
 </html>
 

@@ -1,0 +1,159 @@
+* {
+  box-sizing: border-box;
+}
+
+/* DESKTOP FIRST */
+html, body {
+  height: 100%;
+  margin: 0;
+  overflow: hidden; /* no global scroll */
+  font-family: "Inter", "Segoe UI", Arial, sans-serif;
+}
+
+body {
+  display: flex;
+  background-color: #393e46;
+}
+
+/* LEFT SIDEBAR */
+.left {
+  width: 23.4vw;
+  min-width: 240px;
+  height: 100vh;
+  background-color: rgba(0,255,255,0.3);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2vh 1.5vw;
+  overflow: hidden; /* no scroll here */
+}
+
+.left-title {
+  font-size: clamp(18px, 2vw, 22px);
+  margin-bottom: 1vh;
+  color: white;
+}
+
+.left-list {
+  font-size: clamp(13px, 1.1vw, 15px);
+  padding-left: 1em;
+}
+
+/* RAINBOW LEVEL COLORS */
+.GG-L1 { color: lightgreen; padding-top: 1.2vh; cursor: pointer; }
+.GG-L2 { color: lightyellow; padding-top: 1.2vh; cursor: pointer; }
+.GG-L3 { color: lightcoral; padding-top: 1.2vh; cursor: pointer; }
+.GG-L4 { color: red; padding-top: 1.2vh; cursor: pointer; }
+.GG-L5 { color: white; padding-top: 1.2vh; cursor: pointer; }
+
+/* BACK BUTTON */
+.back {
+  color: white;
+  text-decoration: none;
+  font-size: clamp(20px, 4vw, 36px);
+  margin-bottom: 2vh;
+}
+
+.back:hover {
+  color: red;
+  text-decoration: underline;
+}
+
+/* CONTENT AREA */
+#level1 {
+  flex: 1;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 3vh 3vw;
+  overflow: hidden; /* keep page locked */
+}
+
+
+/* MODULE CARD */
+.module {
+  width: 100%;
+  max-width: 900px;
+  height: 88vh;              /* fixed visible area */
+  background: white;
+  padding: 2rem;
+  border-radius: 14px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+  font-size: clamp(14px, 1vw, 16px);
+  line-height: 1.65;
+
+  overflow-y: auto;          /* 👈 THIS is the key */
+}
+
+/* HEADINGS */
+h2 {
+  color: #37925a;
+  font-size: clamp(18px, 2vw, 22px);
+  margin-bottom: 0.6em;
+}
+
+/* BUTTONS */
+button {
+  background: #58b47b;
+  color: white;
+  border: none;
+  padding: 0.6em 1.2em;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: clamp(13px, 1.1vw, 15px);
+}
+
+button:hover {
+  background: #4aa06d;
+}
+
+.quiz button {
+  margin-top: 10px;
+}
+
+.result {
+  margin-top: 10px;
+  font-weight: 600;
+}
+
+/* COMPLETED */
+.completed {
+  text-decoration: line-through;
+  opacity: 0.6;
+}
+
+.completed::after {
+  content: " ✓";
+}
+
+/* ========================= */
+/* TABLET & MOBILE BEHAVIOR */
+/* ========================= */
+
+@media (max-width: 1024px) {
+  #level1 {
+    align-items: flex-start;
+    overflow-y: auto;
+  }
+
+  .module {
+    height: auto;
+    overflow-y: visible;
+  }
+}
+
+@media (max-width: 768px) {
+  body {
+    flex-direction: column;
+  }
+
+  .left {
+    width: 100%;
+    height: auto;
+  }
+
+  #level1 {
+    height: calc(100vh - 220px);
+  }
+}
