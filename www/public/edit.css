@@ -3,10 +3,22 @@
    padding: 0;
 }
 
-body{
-   background-color:#393E46;
-   transition: background 0.4s ease;
-   overflow-x:hidden;
+body {
+  background-color: #393E46;
+  transition: background 0.4s ease;
+  overflow-x: hidden;
+  color: white;
+  font-family: system-ui, sans-serif;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image: url("https://images.unsplash.com/photo-1697261599586-d44243b3225e?q=80&w=1170&auto=format&fit=crop");
+  background-size: cover;
+  background-position: center;
+  z-index: -1;
 }
 
 body.scrolled {
@@ -83,11 +95,7 @@ body.scrolled {
    gap:1rem;
 }
 .main-top{
-   background-image:url("https://images.unsplash.com/photo-1697261599586-d44243b3225e?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
-   background-size: cover;
-   background-position: center;
-   background-repeat: no-repeat;
-   background-attachment: fixed; 
+   
    height: 100vh; 
    width:100%;
    display: flex;
@@ -113,7 +121,6 @@ body.scrolled {
                                  |
                                  v
 */
-/*pallete: */
 .navbar { /*NAVBAR NAVBAR NAVBAR NAVBAR NAVBAR NAVBAR NAVBAR NAVBAR NAVBAR NAVBAR*/
    display: flex;
    flex-direction: column;
@@ -125,16 +132,15 @@ body.scrolled {
    text-decoration: none;
    padding: 35vh 0 100vw 0; /* top, left, bottom, right */
    transition: all 0.4s ease-in-out;
-   z-index: 5;
+   z-index: 2;
    color:white;
    width:25%;
    backdrop-filter:blur(5px);
    background-image: linear-gradient(to right, #31694e, #00000000);
 }
 .navbar:hover {
-   transform:translate(20%, 0);
-   padding-right: 40%;
-   -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+   transform:translate(60%, 0);
+   
 }
 .navbut {
    display:flex;
@@ -217,25 +223,28 @@ body::-webkit-scrollbar-thumb:hover {
 
 
 .carousel {
+   position:relative;
    margin-top:20%;
    display: flex;
    align-items: center;
    justify-content: center;
    gap: 1rem;
+   z-index:10;
 }
 
 .viewport {
    display:flex;
    justify-content:center;
-   width: 720px;
-   overflow: hidden;
+   width: 1100px;
+   overflow:hidden;
 }
 
 .track {
    display: flex;             
    align-items: center;
+   width:max-content;
    gap: 1.2rem;
-   transition: transform 0.4 ease;
+   transition: transform 0.4s ease;
 }
 
 .card {
@@ -246,12 +255,15 @@ body::-webkit-scrollbar-thumb:hover {
    height: 240px;
    flex-shrink: 0;
    border-radius: 10px;
-   overflow: hidden;
    position: relative;
    opacity: 0.4;
    transform: scale(0.8);
    transition: transform 0.35s ease, opacity 0.35s ease;
+   z-index: 1;
+   pointer-events: auto;
 }
+
+
 
 .card img {
    width: 100%;
@@ -270,6 +282,7 @@ body::-webkit-scrollbar-thumb:hover {
 .card.active {
    transform: scale(1.2);
    opacity: 1;
+   z-index:3;
 }
 
 .nav {
@@ -360,53 +373,40 @@ body::-webkit-scrollbar-thumb:hover {
    RESPONSIVE 600px (phones)
 --------------------------------------------------- */
 @media (max-width: 600px) {
-
-   /* Main heading */
-   .main-content .title {
-      font-size: 16vw;
-   }
-
-   .main-content .main-title {
-      font-size: 7vw;
-      gap: 0.5rem;
-   }
-
-   .button-title {
-      font-size: 2.5vh;
-      padding: 2vh 3vh;
-   }
-
-   /* Navbar becomes a slide-in drawer */
    .navbar {
-      width: 70%;
-      left: -70vw;
-      padding: 25vh 0 100vh 0;
-      backdrop-filter: blur(4px);
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: auto;
+
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+
+      padding: 1rem;
+      transform: none;
+      background-image: none;
+      backdrop-filter: blur(6px);
    }
 
    .navbar:hover {
-      transform: translate(80%, 0);
+      transform: none;
+   }
+   .navbar-title {
+      position: static;
+      font-size: 6vw;
+      text-align: center;
    }
 
    .navbut {
-      font-size: 4vw;
+      white-space: normal;
+      text-align: center;
+      padding: 1rem;
    }
-
-   .navbar-title {
-      font-size: 8vw;
-      right: 3vw;
-   }
-
-   /* Corners smaller */
-   .corner {
-      width: 22px;
-      height: 22px;
-      margin: -28px -8px -28px -8px;
-   }
-
-   /* Buttons easier to click */
-   .navbut, .button-title {
-      padding: 2.5vh;
+   .main-top,
+   .main-content {
+      padding-top: 90px;
    }
 }
 
