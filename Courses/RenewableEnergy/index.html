@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Renewable Energy Modules</title>
-  <link rel="stylesheet" crossorigin href="../../RenewableEnergy.QtUvGXgL.css">
+  <link rel="stylesheet" crossorigin href="../../RenewableEnergy.CzgdeaIW.css">
 </head>
 <body>
 
@@ -557,79 +557,90 @@ Renewable energy is essential for a
 </section>
 
 
-   <script>
-const modules = document.querySelectorAll('.module');
-const menuItems = document.querySelectorAll('.left-list li');
+<section class="footerer">
+    <h1>VNJ</h1>
+    <h2>Renewable Energy</h2>
+    <div class="contacter">
+      <p>Contact Us</p>
+      <ul>
+          <li><a href="https://www.instagram.com/varensut?igsh=a2htMzNoM2FqbjFr" target="_blank">Varen</a></li>
+          <li><a href="https://www.instagram.com/mxpsql?igsh=MWJnM2lpb2RpanVwZQ==" target="_blank">Noah</a></li>
+          <li><a href="https://www.instagram.com/jag.pz?igsh=NXRvaTQ5YWw4bG93" target="_blank">Jamie</a></li>
+      </ul>
+    </div>
+</section>
 
-/* hide all modules */
-modules.forEach(m => m.style.display = 'none');
 
-/* restore progress */
-menuItems.forEach(li => {
-  const id = li.dataset.target;
-  if (localStorage.getItem(id) === 'done') {
-    li.classList.add('completed');
-  }
-});
+<script>
+  const TOPIC = "renewable"; // change per topic
+  const modules = document.querySelectorAll('.module');
+  const menuItems = document.querySelectorAll('.left-list li');
 
-/* shuffle helper */
-function shuffle(el) {
-  const items = [...el.children];
-  items.sort(() => Math.random() - 0.5);
-  items.forEach(i => el.appendChild(i));
-}
-
-/* open module */
-document.querySelector('.left-list').onclick = e => {
-  const target = e.target.dataset.target;
-  if (!target) return;
-
+  /* hide all modules */
   modules.forEach(m => m.style.display = 'none');
-  const module = document.getElementById(target);
-  module.style.display = 'block';
 
-  module.querySelectorAll('.options').forEach(o => shuffle(o));
-};
-
-/* quiz logic */
-document.querySelectorAll('.quiz').forEach(q => {
-  q.onclick = e => {
-    if (e.target.tagName !== 'BUTTON') return;
-
-    const correct = e.target.dataset.correct === "true";
-    const result = q.querySelector('.result');
-    const moduleId = q.dataset.module;
-    const menuItem = document.querySelector(
-      `.left-list li[data-target="${moduleId}"]`
-    );
-
-    if (correct) {
-      result.textContent = "Correct";
-    } else {
-      result.textContent = "Wrong";
+  /* restore progress */
+  menuItems.forEach(li => {
+    const id = li.dataset.target;
+    if (localStorage.getItem(`${TOPIC}_${id}`) === 'done') {
+      li.classList.add('completed');
     }
+  });
 
-    // re-check ALL quizzes in this module every click
-    const allCorrect = [...document.querySelectorAll(
-      `.quiz[data-module="${moduleId}"]`
-    )].every(quiz =>
-      quiz.querySelector('.result').textContent === "Correct"
-    );
+  /* shuffle helper */
+  function shuffle(el) {
+    const items = [...el.children];
+    items.sort(() => Math.random() - 0.5);
+    items.forEach(i => el.appendChild(i));
+  }
 
-    if (allCorrect) {
-      localStorage.setItem(moduleId, 'done');
-      menuItem.classList.add('completed');
-    } else {
-      localStorage.removeItem(moduleId);
-      menuItem.classList.remove('completed');
-    }
+  /* open module */
+  document.querySelector('.left-list').onclick = e => {
+    const target = e.target.dataset.target;
+    if (!target) return;
+
+    modules.forEach(m => m.style.display = 'none');
+    const module = document.getElementById(target);
+    module.style.display = 'block';
+
+    module.querySelectorAll('.options').forEach(o => shuffle(o));
   };
-});
 
-/* open first module */
-document.getElementById('module1').style.display = 'block';
-document.querySelectorAll('#module1 .options').forEach(o => shuffle(o));
+  /* quiz logic */
+  document.querySelectorAll('.quiz').forEach(q => {
+    q.onclick = e => {
+      if (e.target.tagName !== 'BUTTON') return;
+
+      const correct = e.target.dataset.correct === "true";
+      const result = q.querySelector('.result');
+      const moduleId = q.dataset.module;
+      const menuItem = document.querySelector(
+        `.left-list li[data-target="${moduleId}"]`
+      );
+
+      result.textContent = correct ? "Correct" : "Wrong";
+
+      const allCorrect = [...document.querySelectorAll(
+        `.quiz[data-module="${moduleId}"]`
+      )].every(quiz =>
+        quiz.querySelector('.result').textContent === "Correct"
+      );
+
+      if (allCorrect) {
+        localStorage.setItem(`${TOPIC}_${moduleId}`, 'done');
+        menuItem.classList.add('completed');
+      } else {
+        localStorage.removeItem(`${TOPIC}_${moduleId}`);
+        menuItem.classList.remove('completed');
+      }
+    };
+  });
+
+  /* open first module */
+  document.getElementById('module1').style.display = 'block';
+  document.querySelectorAll('#module1 .options').forEach(o => shuffle(o));
 </script>
+
 
 </body>
 </html>
