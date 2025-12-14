@@ -185,35 +185,106 @@ body.scrolled {
 }
 
 .course-title {
-   position:absolute;
-   padding: 10px;
-   bottom: 0;
-   left: 0;
-   box-sizing: border-box;
-   color: #fff;
-   margin: 0;
-   width:100%;
-   text-shadow: 2px 2px 4px #333;
-   z-index:1;
+   position: absolute;
+   inset: 0;                 /* top right bottom left = 0 */
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   color: white;
+   font-size: 1.4rem;
+   font-weight: 600;
+   text-decoration: none;
+   text-align: center;
 }
 
 
 body::-webkit-scrollbar {
-    width: 4px;
+   width: 4px;
 }
 
 body::-webkit-scrollbar-track {
-    background: transparent;
+   background: transparent;
 }
 
 body::-webkit-scrollbar-thumb {
-    background: rgba(176, 38, 176, 0.35); /* soft purple tint */
-    border-radius: 2vw;
+   background: rgba(176, 38, 176, 0.35); 
+   border-radius: 2vw;
 }
 
 body::-webkit-scrollbar-thumb:hover {
-    background: rgba(176, 38, 176, 0.55);
+   background: rgba(176, 38, 176, 0.55);
 }
+
+
+.carousel {
+   margin-top:20%;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   gap: 1rem;
+}
+
+.viewport {
+   display:flex;
+   justify-content:center;
+   width: 720px;
+   overflow: hidden;
+}
+
+.track {
+   display: flex;             
+   align-items: center;
+   gap: 1.2rem;
+   transition: transform 0.4 ease;
+}
+
+.card {
+   display:flex;
+   align-items:center;
+   justify-content:center;
+   width: 360px;
+   height: 240px;
+   flex-shrink: 0;
+   border-radius: 10px;
+   overflow: hidden;
+   position: relative;
+   opacity: 0.4;
+   transform: scale(0.8);
+   transition: transform 0.35s ease, opacity 0.35s ease;
+}
+
+.card img {
+   width: 100%;
+   height: 100%;
+   object-fit: cover;
+}
+
+.card span {
+   position: absolute;
+   bottom: 8px;
+   left: 10px;
+   color: white;
+   font-weight: 600;
+}
+
+.card.active {
+   transform: scale(1.2);
+   opacity: 1;
+}
+
+.nav {
+   background: none;
+   border: none;
+   font-size: 2rem;
+   cursor: pointer;
+}
+
+
+
+
+
+
+
 
 
 /* responsive stuff */
@@ -237,6 +308,10 @@ body::-webkit-scrollbar-thumb:hover {
       font-size: 1.5vw;
    }
 }
+
+
+
+
 
 /* ---------------------------------------------------
    RESPONSIVE 900px (tablets)

@@ -72,6 +72,8 @@ body {
 
 
 .module {
+  display:flex;
+  flex-direction:column;
   width: 100%;
   max-width: 900px;
   height: 88vh;              
@@ -122,8 +124,22 @@ button:hover {
   content: " ✓";
 }
 
+.footerer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: auto 0;
+  padding: 1rem;
+  background-color: #eee;
+  border-radius: 10px;
+  font-size: clamp(12px, 0.9vw, 14px);
+  text-align: center;
+}
 
-@media (max-width: 1024px) {
+
+
+@media (max-width: 1024px) and (min-width: 769px) {
   #level1 {
     align-items: flex-start;
     overflow-y: auto;
@@ -133,8 +149,11 @@ button:hover {
     height: auto;
     overflow-y: visible;
   }
+  
+  .footerer{
+    margin-top:auto;
+  }
 }
-
 
 @media (max-width: 768px) {
 
@@ -182,6 +201,12 @@ button:hover {
     padding: 1.2rem;
     border-radius: 12px;
     overflow-y: auto;
+  }
+  .footerer{
+    margin-top:auto;
+    flex-direction:row;
+    max-height:12%;
+    gap:7px;
   }
 }
 

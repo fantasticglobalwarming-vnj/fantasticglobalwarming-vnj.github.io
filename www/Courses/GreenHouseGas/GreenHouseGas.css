@@ -72,6 +72,8 @@ body {
 
 
 .module {
+  display:flex;
+  flex-direction:column;
   width: 100%;
   max-width: 900px;
   height: 88vh;              
@@ -123,13 +125,16 @@ button:hover {
 }
 
 .footerer {
-  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: auto 0;
   padding: 1rem;
   background-color: #eee;
   border-radius: 10px;
   font-size: clamp(12px, 0.9vw, 14px);
   text-align: center;
-  text-decoration:none;
 }
 
 
@@ -199,6 +204,9 @@ button:hover {
   }
   .footerer{
     margin-top:auto;
+    flex-direction:row;
+    max-height:12%;
+    gap:7px;
   }
 }
 
